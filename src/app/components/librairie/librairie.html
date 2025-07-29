@@ -1,0 +1,15 @@
+<h2>Book</h2>
+<ul>
+  <li class="flex justify-between items-center p-4 bg-gray-300 rounded mb-3">
+    @for (book of books; track book; let i = $index) {
+    <strong>{{ book.title }}</strong> par {{ book.author }}
+    <span> - <span [innerText]="book.isRead | readEmoji"></span></span>
+    <button (click)="toggleReadStatus(book)">
+      Marquer {{ book.isRead ? 'unread' : 'read' }}
+    </button>
+  </li>
+  } @empty {
+      <p>None</p>
+    }
+</ul>
+
